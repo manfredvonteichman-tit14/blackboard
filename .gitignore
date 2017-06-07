@@ -88,3 +88,4 @@ ENV/
 
 # Blackboard project settings
 .idea/
+*.pyc
