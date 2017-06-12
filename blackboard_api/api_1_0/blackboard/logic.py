@@ -20,10 +20,6 @@ def create_blackboard(name):
 
 def display_blackboard(name, payload):
     message = payload.get('message')
-
-    if message == '':
-        return marshal({'response': http.POST_RESPONSE_409}, http_response), 409
-
     try:
         blackboard_entity = Blackboard.query.filter_by(name=name).first()
         blackboard_entity.message = message
@@ -78,3 +74,10 @@ def delete_blackboard(name):
         return marshal({'response': http.RESPONSE_404}, http_response), 404
 
     return marshal({'response': http.DELETE_RESPONSE_200}, http_response), 200
+
+
+def read_all_blackboards(name):
+    pass
+
+def delete_all_blackboards(name):
+    pass

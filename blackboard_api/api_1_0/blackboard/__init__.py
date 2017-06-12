@@ -24,7 +24,6 @@ class BlackboardResource(Resource):
     @api.response(201, http.POST_RESPONSE_201, http_response)
     @api.response(400, http.RESPONSE_400)
     @api.response(404, http.RESPONSE_404, http_response)
-    @api.response(409, http.POST_RESPONSE_409, http_response)
     def post(self, name):
         """
         Display the message of the named blackboard instance.
@@ -32,8 +31,8 @@ class BlackboardResource(Resource):
         return display_blackboard(name, payload=request.json)
 
     @api.response(200, http.GET_RESPONSE_200, http_message)
-    @api.response(409, http.GET_RESPONSE_409, http_response)
     @api.response(404, http.RESPONSE_404, http_response)
+    @api.response(409, http.GET_RESPONSE_409, http_response)
     def get(self, name):
         """
         Read message of named blackboard instance.
