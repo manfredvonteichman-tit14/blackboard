@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 """ The settings file used to pre-configure the Flask server """
 
-__author__ = "Michał Karzyński"
-__maintainer__ = "Manfred von Teichman"
-__email__ = "vonteichman.m-tit14@it.dhbw-ravensburg.de"
+__author__ = 'Michał Karzyński'
+__maintainer__ = 'Manfred von Teichman'
+__email__ = 'vonteichman.m-tit14@it.dhbw-ravensburg.de'
 
 # Flask settings
 FLASK_HOST = '0.0.0.0'

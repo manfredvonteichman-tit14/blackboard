@@ -2,11 +2,11 @@ import json
 
 import requests
 
-__author__ = "Andreas Bernöcker"
-__version__ = "1.0"
-__maintainer__ = "Manfred von Teichman"
-__email__ = "bernoecker.and-tit14@it.dhbw-ravensburg.de"
-__status__ = "Development"
+__author__ = 'Andreas Bernöcker'
+__version__ = '1.0'
+__maintainer__ = 'Manfred von Teichman'
+__email__ = 'bernoecker.and-tit14@it.dhbw-ravensburg.de'
+__status__ = 'Development'
 
 blackBoardName = "test"
 blackBoardName1 = "test1"

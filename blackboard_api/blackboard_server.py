@@ -13,11 +13,11 @@ from blackboard_api.api_1_0.blackboard import ns as blackboard
 from blackboard_api.api_1_0.restplus import api
 from blackboard_api.database import db
 
-__author__ = "Manfred von Teichman"
-__version__ = "1.0"
-__maintainer__ = "Manfred von Teichman"
-__email__ = "vonteichman.m-tit14@it.dhbw-ravensburg.de"
-__status__ = "Development"
+__author__ = 'Manfred von Teichman'
+__version__ = '1.0'
+__maintainer__ = 'Manfred von Teichman'
+__email__ = 'vonteichman.m-tit14@it.dhbw-ravensburg.de'
+__status__ = 'Development'
 
 app = Flask(__name__)
 
