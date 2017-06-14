@@ -9,6 +9,16 @@ from blackboard_api.api_1_0.restplus import api
 ns = api.namespace('blackboard', description='Operations related to the blackboard resources')
 
 
+@ns.route('/')
+@api.response(500, http.RESPONSE_500, http_error)
+class BlackboardCollection(Resource):
+    @api.response(200, http.DELETE_RESPONSE_200, http_response)
+    def delete(self):
+        """
+        Delete the complete blackboard collection.
+        """
+        return delete_all_blackboards()
+
 @ns.route('/<name>')
 @api.response(500, http.RESPONSE_500, http_error)
 class BlackboardResource(Resource):

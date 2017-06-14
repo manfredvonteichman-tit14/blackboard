@@ -79,5 +79,11 @@ def delete_blackboard(name):
 def read_all_blackboards(name):
     pass
 
-def delete_all_blackboards(name):
-    pass
+def delete_all_blackboards():
+    try:
+        Blackboard.query.delete()
+        db.session.commit()
+    except:
+        pass
+
+    return marshal({'response': http.DELETE_ALL_RESPONSE_200}, http_response), 200

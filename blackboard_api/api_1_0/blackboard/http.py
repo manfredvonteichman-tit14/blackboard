@@ -13,11 +13,10 @@ PUT_RESPONSE_409 = 'Blackboard Already Exists'
 
 # POST specific response
 POST_RESPONSE_201 = 'Blackboard Updated'
-POST_RESPONSE_409 = 'Use PATCH /clear'
-POST_RESPONSE_413 = 'Blackboard Message Payload Too Large'
 
 # PATCH specific response
-PATCH_RESPONSE_200 = 'Blackboard Cleared'  # 'Blackboard status successfully fetched.'
+PATCH_RESPONSE_200 = 'Blackboard Cleared'
 
 # DELETE specific response
 DELETE_RESPONSE_200 = 'Blackboard Deleted'
+DELETE_ALL_RESPONSE_200 = 'All Blackboards Deleted'
