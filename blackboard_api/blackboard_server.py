@@ -11,7 +11,7 @@ from blackboard_api.database import db
 
 app = Flask(__name__)
 
-handler = RotatingFileHandler('app.log', maxBytes=100000, backupCount=3)
+handler = RotatingFileHandler('app.log', maxBytes=1000000, backupCount=3)
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
 log.setLevel(logging.INFO)
@@ -33,8 +33,6 @@ def after_request(response):
 
 
 def configure_app(flask_app):
-    pass
-    # flask_app.config['SERVER_NAME'] = settings.FLASK_SERVER_NAME
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = settings.SQLALCHEMY_DATABASE_URI
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = settings.SQLALCHEMY_TRACK_MODIFICATIONS
     flask_app.config['SWAGGER_UI_DOC_EXPANSION'] = settings.RESTPLUS_SWAGGER_UI_DOC_EXPANSION
@@ -56,7 +54,7 @@ def initialize_app(flask_app):
 
 def main():
     initialize_app(app)
-    app.run(debug=settings.FLASK_DEBUG, host='0.0.0.0', port=1337)
+    app.run(debug=settings.FLASK_DEBUG, host=settings.FLASK_HOST, port=settings.FLASK_PORT)
 
 
 if __name__ == '__main__':

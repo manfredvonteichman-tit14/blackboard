@@ -35,7 +35,6 @@ def read_blackboard(name):
     try:
         blackboard_entity = Blackboard.query.filter_by(name=name).first()
         message = blackboard_entity.message
-        print(message)
         if message == '':
             return marshal({'response': http.GET_RESPONSE_409}, http_response), 409
     except AttributeError:
