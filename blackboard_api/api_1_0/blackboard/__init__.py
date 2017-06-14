@@ -1,3 +1,5 @@
+""" Implementation of the specified Blackboard REST API, incorporating the given business logic """
+
 from flask import request
 from flask_restplus import Resource
 
@@ -6,9 +8,11 @@ from blackboard_api.api_1_0.blackboard.logic import *
 from blackboard_api.api_1_0.blackboard.serializer import *
 from blackboard_api.api_1_0.restplus import api
 
+# Setup the blackboard namespace to be used with the following classes.
 ns = api.namespace('blackboard', description='Operations related to the blackboard resources')
 
 
+# Routing on the hostname:port/api/v1/blackboard/ collection.
 @ns.route('/')
 @api.response(500, http.RESPONSE_500, http_error)
 class BlackboardCollection(Resource):
@@ -19,6 +23,8 @@ class BlackboardCollection(Resource):
         """
         return delete_all_blackboards()
 
+
+# Routing on the hostname:port/api/v1/blackboard/<name> resources.
 @ns.route('/<name>')
 @api.response(500, http.RESPONSE_500, http_error)
 class BlackboardResource(Resource):
@@ -58,6 +64,7 @@ class BlackboardResource(Resource):
         return delete_blackboard(name)
 
 
+# Routing on the hostname:port/api/v1/blackboard/<name>/status controller.
 @ns.route('/<name>/status')
 @api.response(500, http.RESPONSE_500, http_error)
 class BlackboardResourceStatusController(Resource):
@@ -70,6 +77,7 @@ class BlackboardResourceStatusController(Resource):
         return get_blackboard_status(name)
 
 
+# Routing on the hostname:port/api/v1/blackboard/<name>/clear controller.
 @ns.route('/<name>/clear')
 @api.response(500, http.RESPONSE_500, http_error)
 class BlackboardResourceClearController(Resource):

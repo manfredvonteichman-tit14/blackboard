@@ -1,6 +1,9 @@
+""" Database model file, describing the table schema used by Flask-SQLAlchemy """
+
 from blackboard_api.database import db
 
 
+# Representation of the Blackboard table
 class Blackboard(db.Model):
     name = db.Column(db.String(32), primary_key=True)
     message = db.Column(db.String(255))

@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+""" This is the base class to start the RESTful web service hosting the Blackboard API. """
+
 import logging.config
 from logging.handlers import RotatingFileHandler
 from time import strftime
@@ -9,8 +13,15 @@ from blackboard_api.api_1_0.blackboard import ns as blackboard
 from blackboard_api.api_1_0.restplus import api
 from blackboard_api.database import db
 
+__author__ = "Manfred von Teichman"
+__version__ = "1.0"
+__maintainer__ = "Manfred von Teichman"
+__email__ = "vonteichman.m-tit14@it.dhbw-ravensburg.de"
+__status__ = "Development"
+
 app = Flask(__name__)
 
+# Setup the logging functionality
 handler = RotatingFileHandler('app.log', maxBytes=1000000, backupCount=3)
 logging.config.fileConfig('logging.conf')
 log = logging.getLogger(__name__)
@@ -18,11 +29,13 @@ log.setLevel(logging.INFO)
 log.addHandler(handler)
 
 
+# Catch any 404 error and return it as a json response
 @app.errorhandler(404)
 def not_found(error):
     return jsonify(error=str(error)), 404
 
 
+# Registers the logging functionality to run after each request.
 @app.after_request
 def after_request(response):
     timestamp = strftime('[%Y-%b-%d %H:%M]')
@@ -41,6 +54,7 @@ def configure_app(flask_app):
     flask_app.config['ERROR_404_HELP'] = settings.RESTPLUS_ERROR_404_HELP
 
 
+# Create the app using a factory, setup its dependencies and the base url given the set prefix.
 def initialize_app(flask_app):
     configure_app(flask_app)
 
@@ -52,6 +66,7 @@ def initialize_app(flask_app):
     db.init_app(flask_app)
 
 
+# Initialize the app and run it on the pre-configured hostname and port.
 def main():
     initialize_app(app)
     app.run(debug=settings.FLASK_DEBUG, host=settings.FLASK_HOST, port=settings.FLASK_PORT)
