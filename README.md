@@ -1,6 +1,8 @@
 # blackboard
 Verteilte Systeme Testat
 
+To try a live demo, visit our [GitHub page](https://manfredvonteichman-tit14.github.io/blackboard/).
+
 ## What is 'blackboard'?
 
 A RESTful web service offering the functionality to create, read, write to and delete a blackboard. (CRUD)
@@ -34,6 +36,6 @@ To get the server up and running, the following steps must be followed.
 
 ### Running the web service
 
-Start the server by running: `python blackboard_api\blackboard_server.py`
+Start the server by running: `python blackboard_api\blackboard_server.py` on Windows and respectiveley `python blackboard_api/blackboard_server.py` on Linux/macOS
 By default the server listens on all interfaces and can therefore be reached at
 `http://127.0.0.1:1337/api/v1`
